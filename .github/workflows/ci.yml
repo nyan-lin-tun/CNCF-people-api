@@ -36,9 +36,9 @@ jobs:
         with:
           images: docker.io/nyanlintun/cncf-people-api
           tags: |
-            type=semver,pattern={{version}},enable={{startsWith(github.ref, 'refs/tags/')}}
-            type=semver,pattern={{major}}.{{minor}},enable={{startsWith(github.ref, 'refs/tags/')}}
-            type=semver,pattern={{major}},enable={{startsWith(github.ref, 'refs/tags/')}}
+            type=semver,pattern={{version}},enable={{is_semver}}
+            type=semver,pattern={{major}}.{{minor}},enable={{is_semver}}
+            type=semver,pattern={{major}},enable={{is_semver}}
             type=raw,value=latest,enable={{is_default_branch}}
             type=raw,value=edge,enable={{is_default_branch}}
       - name: Login to Docker Hub
